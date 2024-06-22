@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="AES.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+
+</head>
+
+<body>
+
+    <HEADER class="head"> 128 bit - AES(Advanced Encryption Standard) </HEADER>
+
+    <div class="container">
+        <p class="select">Please Select the required operation </p>
+        <div class="button">
+            <button type="button" id="btn11">Encryption</button>
+ 
+            <button type="button" id="btn12">Decryption</button>
+        </div>
+        <div class="button">
+            <button type="button" id="btn13">Text to Hex code </button>
+   
+            <button type="button" id="btn14">Hex Code to Text </button>
+        </div>
+        <div class="button">
+            <button type="button" id="btn15">Check Equality </button>
+        </div>
+        <div class="button">
+            <button type="button" id="btn16">Image Encryption </button>
+       
+            <button type="button" id="btn17">Image Decryption </button>
+        </div>
+        
+    </div>
+
+    <!-- --------------------------------------------------------------------------- -->
+
+    <div class="container1">
+        <div class="main">
+            <div class="clear1">
+                <button type="button" id="btn_clr_1">Clear </button>
+            </div>
+
+            <div class="name">
+                <div class="MESSAGE">
+                    <h3 class="n1">MESSAGE</h3>
+                    <p class="text1">Enter the message</p>
+                    <input id="inp11" type="text" autocomplete="off">
+
+                </div>
+                <div class="KEY">
+                    <h3 class="n1">KEY</h3>
+                    <p class="text1">Enter the KEY</p>
+                    <input id="inp12" type="text" autocomplete="off">
+
+                </div>
+            </div>
+
+            <div class="button">
+                <button type="button" id="btn1">Click </button>
+            </div>
+
+
+            <div class="name1">
+                <div class="MESSAGE_HEX">
+                    <h3 class="n1">MESSAGE HEX VALUE</h3>
+                    <p id="output11">The HEX value of Message will show here.</p>
+                </div>
+                <div class="KEY_HEX">
+                    <h3 class="n1">KEY HEX VALUE</h3>
+                    <p id="output22">The HEX value of key will show here.</p>
+                </div>
+            </div>
+
+            <div class="name2">
+                <div class="answer">
+                    <h3 class="n1">Encrypted HEX value</h3>
+                    <p id="output33">The Encrypted Message will show here.</p>
+                </div>
+            </div>
+
+            <div id="barcode"></div>
+
+            <div class="button">
+                <button type="button" id="btn_back_1">Back </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- --------------------------------------------------------------------------------------------------------- -->
+
+
+
+    <div class="container2">
+        <div class="main">
+
+            <div class="clear2">
+                <button type="button" id="btn_clr_2">Clear </button>
+            </div>
+
+            <div class="name">
+
+                <div class="MESSAGE">
+                    <h3 class="n1">Cipher Text</h3>
+                    <p class="text1">Enter the Cipher Text</p>
+                    <input id="inp1" type="text" autocomplete="off">
+
+                </div>
+                <div class="KEY">
+                    <h3 class="n1">KEY</h3>
+                    <p class="text1">Enter the KEY</p>
+                    <input id="inp2" type="text" autocomplete="off">
+
+                </div>
+            </div>
+
+            <div class="button">
+                <button type="button" id="btn2">Click </button>
+            </div>
+
+
+            <div class="name1">
+                <div class="MESSAGE_HEX">
+                    <h3 class="n1">Cipher Text HEX VALUE</h3>
+                    <p id="output1">The HEX value of Message will show here.</p>
+                </div>
+                <div class="KEY_HEX">
+                    <h3 class="n1">KEY HEX VALUE</h3>
+                    <p id="output2">The HEX value of key will show here.</p>
+                </div>
+            </div>
+
+            <div class="name2">
+                <div class="answer">
+                    <h3 class="n1">Decrypted Message in HEX</h3>
+                    <p id="output">The Decrypted Message will show here.</p>
+                </div>
+                <div class="answer1">
+                    <h3 class="n1">Decrypted Message</h3>
+                    <p id="output3">The Decrypted Message will show here.</p>
+                </div>
+            </div>
+            <div class="button">
+                <button type="button" id="btn_back_2">Back </button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- --------------------------------------------------------------------------------------- -->
+
+
+    <div class="container3">
+        <div class="main">
+
+            <div class="clear3">
+                <button type="button" id="btn_clr_3">Clear </button>
+            </div>
+
+            <div class="name">
+
+                <div class="MESSAGE">
+                    <h3 class="n1">Text</h3>
+                    <p class="text1">Enter the Text</p>
+                    <input id="txt1" type="text" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="button">
+                <button type="button" id="btn3">Click </button>
+            </div>
+
+
+            <div class="name1">
+                <div class="MESSAGE_HEX">
+                    <h3 class="n1">HEX code</h3>
+                    <p id="out1">The HEX value of Message will show here.</p>
+                </div>
+            </div>
+
+            <div class="button">
+                <button type="button" id="btn_back_3">Back </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- --------------------------------------------------------------------------------------- -->
+
+    <div class="container4">
+        <div class="main">
+
+            <div class="clear4">
+                <button type="button" id="btn_clr_4">Clear </button>
+            </div>
+
+            <div class="name">
+                <div class="MESSAGE">
+                    <h3 class="n1">Hex Code</h3>
+                    <p class="text1">Enter the Hex Code</p>
+                    <input id="txt2" type="text" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="button">
+                <button type="button" id="btn4">Click </button>
+            </div>
+
+
+            <div class="name1">
+                <div class="MESSAGE_HEX">
+                    <h3 class="n1">Text</h3>
+                    <p id="out2">The Text Message will show here.</p>
+                </div>
+            </div>
+
+            <div class="button">
+                <button type="button" id="btn_back_4">Back </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- --------------------------------------------------------------------------------------- -->
+
+    <div class="container5">
+        <div class="clear5">
+            <button type="button" id="btn_clr_5">Clear </button>
+        </div>
+
+        <div class="name">
+            <div class="MESSAGE">
+                <h3 class="n1">MESSAGE</h3>
+                <p class="text1">Enter First string</p>
+                <input id="inp31" type="text" autocomplete="off">
+
+            </div>
+            <div class="KEY">
+                <h3 class="n1">KEY</h3>
+                <p class="text1">Enter Second string</p>
+                <input id="inp32" type="text" autocomplete="off">
+            </div>
+        </div>
+
+        <div class="button">
+            <button type="button" id="btn5">Click </button>
+        </div>
+
+        <div class="name1">
+            <div class="MESSAGE_HEX">
+                <h3 class="n1">Confirmation</h3>
+                <p id="out3">The Confirmation will be shown here.</p>
+            </div>
+        </div>
+        <div class="button">
+            <button type="button" id="btn_back_5">Back </button>
+        </div>
+
+    </div>
+
+    <!-- --------------------------------------------------------------------------------------- -->
+
+    <div class="container6">
+
+        <div class="clear6">
+            <button type="button" id="btn_clr_6">Clear </button>
+        </div>
+
+        <div class="name">
+            <div class="MESSAGE">
+                <h3 class="n1">IMAGE</h3>
+                <p class="text1">Upload and Encrypt Image</p>
+                <input type="file" id="imageInput" accept="image/*"><br><br>
+            </div>
+            <div class="KEY">
+                <h3 class="n1">KEY</h3>
+                <p class="text1">Enter encryption key</p>
+                <input type="text" id="encryptionKey" placeholder="Enter encryption key" autocomplete="off"><br><br>
+            </div>
+        </div>
+
+        <div class="button">
+            <button onclick="encryptImage()" id="btn6">Encrypt Image</button>
+        </div>
+
+        <div class="image">
+            <div id="encryptedImage"></div>
+            <button onclick="copyText()">Copy Text</button>
+        </div>
+
+        <div class="button">
+            <button type="button" id="btn_back_6">Back </button>
+        </div>
+
+    </div>
+
+    <!-- --------------------------------------------------------------------------------------------------------- -->
+
+    <div class="container7">
+
+        <div class="clear7">
+            <button type="button" id="btn_clr_7">Clear </button>
+        </div>
+
+        <div class="name">
+            <div class="MESSAGE">
+                <h3 class="n1">IMAGE</h3>
+                <p class="text1">Decrypt Image</p>
+                <textarea id="encryptedData" rows="10" cols="50"
+                    placeholder="Paste encrypted data here"></textarea><br><br>
+            </div>
+            <div class="KEY">
+                <h3 class="n1">KEY</h3>
+                <p class="text1">Enter decryption key</p>
+                <input type="text" id="decryptionKey" placeholder="Enter decryption key" autocomplete="off"><br><br>
+            </div>
+        </div>
+
+        <div class="button">
+            <button onclick="decryptImage()" id="btn7">Decrypt Image</button>
+        </div>
+
+        <div class="image">
+            <div id="decryptedImage"></div>
+        </div>
+
+        <div class="button">
+            <button onclick="downloadDecrypted()" id="download">Download Image</button>
+        </div>
+
+        <div class="button">
+            <button type="button" id="btn_back_7">Back </button>
+        </div>
+
+    </div>
+
+    <script src="AES.js"> </script>
+   
+</body>
+
+</html>
